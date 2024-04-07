@@ -2,13 +2,14 @@
 
 Servo servo;
 
-int voltage_input_pin=10;
-int servo_pin=9;
-int no_spray_angle=0;
-int spray_angle=90;
+int voltage_input_pin = 10;
+int servo_pin = 9;
+int no_spray_angle = 0;
+int spray_angle = 90;
 int angle;
-                                                   
-void setup() {
+
+void setup()
+{
   Serial.begin(9600);
 
   servo.attach(ServoPin);
@@ -16,23 +17,32 @@ void setup() {
   pinMode(voltage_input_pin, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
 
- servo.write(no_spray_angle);
- angle = 0;
+  angle = no_spray_angle;
+  servo.write(angle);
 }
 
-void loop() {
-  if (digitalRead(SensePin) == HIGH) {
-    // Serial.println("spraying!");
-    for (angle=angle; angle<=spray_angle; angle++) {
-        servo.write(angle);
-        // account for servo's travel time
-        delay(3);
-    }
-  } else {
-    for (angle=angle; angle>=no_spray_angle; angle--) {
-        servo.write(angle);
-        // account for servo's travel time
-        delay(3);
+void loop()
+{
+  if (digitalRead(voltage_input_pin) == HIGH)
+  {
+    digitalWrite(LED_BUILTIN, HIGH);
+
+    if (angle <= spray_angle)
+    {
+      angle++;
+      delay(5);
     }
   }
+  else
+  {
+    digitalWrite(LED_BUILTIN, LOW);
+
+    if (angle > no_spray_angle)
+    {
+      angle--;
+      delay(5);
+    }
+  }
+
+  servo.write(angle);
 }
