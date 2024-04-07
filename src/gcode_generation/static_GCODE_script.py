@@ -49,16 +49,18 @@ gcode.print_G1_line(
     0, 0, Z=Spray_height, E=0, F=Feedrate
 )  # move the bed to the designed height and set the feedrate
 
-gcode.print_G1_line(Center_area.x, Center_area.y, Spray_height)  # move to the purging area
+gcode.print_G1_line(
+    Center_area.x, Center_area.y, Spray_height
+)  # move to the purging area
 gcode.Show("Waiting for the bed temperature to stabilize")
 gcode.Temperature(Temperature_stage)
 
 for i in range(50):  # iterate over the number of layers
     gcode.Show(f"layer {i} ongoing")
     ### Implement suplementary movement
-    gcode.Spray_ON()
+    gcode.Spray()
     gcode.Delay(5)
-    gcode.Spray_OFF()  # Stop the spray
+    gcode.Stop_Spray()  # Stop the spray
     gcode.Show("waiting for the ink to dry")
 
     gcode.Delay(Time_delay)  # wait after each layer for the ink to dry
