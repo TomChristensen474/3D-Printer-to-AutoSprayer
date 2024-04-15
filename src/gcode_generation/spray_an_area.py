@@ -65,10 +65,10 @@ for i in range(LAYERS):
         
         gcode.print_G1_line(line_start.x, line_start.y, SPRAY_HEIGHT)         # move to the starting point of layer
         
-        # gcode.Spray()
+        gcode.Spray()
         gcode.Delay(SPRAY_DELAY)
         gcode.print_G1_line(line_start.x + SPRAY_AREA.width, line_start.y, SPRAY_HEIGHT)  # move to the end of the line
-        # gcode.Stop_Spray()                                                 # Stop the spray
+        gcode.Stop_Spray()                                                 # Stop the spray
         gcode.Delay(SPRAY_DELAY)
 
         line_start = Point(x=line_start.x, y=line_start.y + HATCH)
