@@ -12,7 +12,7 @@ void setup()
 {
   Serial.begin(9600);
 
-  servo.attach(ServoPin);
+  servo.attach(servo_pin);
 
   pinMode(voltage_input_pin, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
@@ -30,7 +30,7 @@ void loop()
     if (angle <= spray_angle)
     {
       angle++;
-      delay(5);
+      delay(2);
     }
   }
   else
@@ -40,7 +40,7 @@ void loop()
     if (angle > no_spray_angle)
     {
       angle--;
-      delay(5);
+      delay(2);
     }
   }
 

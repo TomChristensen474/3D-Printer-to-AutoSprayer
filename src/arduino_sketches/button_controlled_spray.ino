@@ -2,7 +2,7 @@
 
 Servo servo;
 
-int button_pin = 10;
+int button_pin = 12;
 int servo_pin = 9;
 int no_spray_angle = 0;
 int spray_angle = 90;
@@ -14,7 +14,7 @@ void setup()
 
   servo.attach(servo_pin);
 
-  pinMode(button_pin, INPUT);
+  pinMode(button_pin, INPUT_PULLUP);
   pinMode(LED_BUILTIN, OUTPUT);
 
   angle = no_spray_angle;
@@ -23,6 +23,7 @@ void setup()
 
 void loop()
 {
+  // Serial.println(digitalRead(button_pin));
   if (digitalRead(button_pin) == LOW)
   {
     digitalWrite(LED_BUILTIN, HIGH);
@@ -30,7 +31,7 @@ void loop()
     if (angle <= spray_angle)
     {
       angle++;
-      delay(5);
+      delay(2);
     }
   }
   else
@@ -40,7 +41,7 @@ void loop()
     if (angle > no_spray_angle)
     {
       angle--;
-      delay(5);
+      delay(2);
     }
   }
 
