@@ -2,10 +2,10 @@
 
 Servo servo;
 
-int voltage_input_pin = 10;
+int voltage_input_pin = A0;
 int servo_pin = 9;
-int no_spray_angle = 0;
-int spray_angle = 90;
+int no_spray_angle = 10;
+int spray_angle = 65;
 int angle;
 
 void setup()
@@ -23,14 +23,16 @@ void setup()
 
 void loop()
 {
-  if (digitalRead(voltage_input_pin) == HIGH)
+  int sensor_value = analogRead(A0);
+  float voltage = sensor_value * (5.0 / 1023.0);
+  if (voltage > 1)
   {
     digitalWrite(LED_BUILTIN, HIGH);
 
     if (angle <= spray_angle)
     {
       angle++;
-      delay(2);
+      delay(3);
     }
   }
   else
@@ -40,7 +42,7 @@ void loop()
     if (angle > no_spray_angle)
     {
       angle--;
-      delay(2);
+      delay(3);
     }
   }
 
