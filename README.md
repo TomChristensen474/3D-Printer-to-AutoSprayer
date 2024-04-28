@@ -15,11 +15,9 @@ Speaking of inspiration: The idea for this project and some code developed was b
 
 [How to set up](##how-to-set-up)
 
-[Code explainer](##the-code---what-does-it-do)
-
 [Demo](##demo)
 
-
+[Code breakdown](##the-code---what-does-it-do)
 
 
 ## System requirements
@@ -30,10 +28,10 @@ Speaking of inspiration: The idea for this project and some code developed was b
 * Inks/Paints for airbrushing
 
 #### Equipment you may already have on hand :)
-* Resistors (<INSERT MY SPECIFIC ONES USED FOR ENDER 3 SYSTEM>)
-* Arduino
-* 6xAA battery holder and (preferrably rechargeable) batteries (to power servo and circuit)
-* Servo motor (<INSERT SPECIFIC ONE USED / SPECS>)
+* 2x Resistors in restistance ratio (<INSERT MY SPECIFIC ONES USED FOR ENDER 3 SYSTEM>)
+* Arduino Uno (you can, of course, use whatever arduino you may have to hand, but the uno made it convenient with it's plethora of connections)
+* 6xAA battery holder and (preferrably rechargeable) batteries (to power servo and circuit). If using an alternative method of powering the system, make sure it can handle the current draw of whatever servo you use. A simple USB will likely not be enough to power it.
+* Servo motor (DS239-MG or equivalent) (<INSERT SPECIFIC ONE USED / SPECS>) 
 * Heat-set threaded inserts and screws
 * Cables
 * Cable wrap for cable management
@@ -70,16 +68,22 @@ To connect your circuit to the printer, we solder two leads from our circuit to 
 
 If you are using a CNC 3D gantry or simply don't want to solder a connection to the fan on your printer. You can still use a button-controlled circuit to tell the circuit when to spray manually and achieve great results.
 
-### Load the code
+### Run the code
+Load the relevant Arduino sketch onto your Arduino depending on if you're automated or button controlled spraying. You can then disconnect it if you wish as your battery/power supply can power the Arduino.
 
-### Step 4 - Testing
+To run the ```spray_an_area.py``` script to generate ```.gcode``` to spray a desired area. You can run ```src/gcode_generation/spray_an_area.py``` with the following flags to specify the area you want to spray
+```--start position```
+```--spray area``` 
+
+
+### Step 5 - Testing
 Now that your circuit is all connected, let's give it a test before we finish the assembly. Your printer's control software should have some way of manually turning on and off the fans on the print head like this on the Ender 3 V3 SE's menu (control->temperature->fans) pictured below.
 
 When the fans are switched on you should see (and hear) your servo actuating to its 'spray' position. When the fans are switched off, you should see it return to its 'resting' position.
 
 If you are using manually controlled spraying, add a button to your circuit and test that your servo activates when a button is pressed.
 
-### Step 5 - Assembly and dry run
+### Step 6 - Assembly and dry run
 Your servo will be attached to the airbrush mounting hardware and will therefore have wires dangling down from the printer's frame. To tidy up these wires along with the leads connecting to the printer's fan, I highly suggest getting some cable wrap to route them all together and prevent unecessary strain on individual cables.
 
 You can now load your airbrush onto your mounting hardware (without any ink loaded in the paint cup), with the extended trigger. Mount the servo as well and position the servo arm primed to push back the airbrush trigger.
@@ -90,12 +94,12 @@ You should see your print head strafe over your specified spray area and your se
 
 You can use this opportunity to hone in your spraying dimensions.
 
-### Step 6 - Mask your printer to protect from stray paint
+### Step 7 - Mask your printer to protect from stray paint
 Wait, wait, wait before you start spraying! Make sure you mask off your print bed, and the area around it to prevent getting paint on it.
 
 If your printer has a magnetic print bed like the Ender 3 V3 SE, I would recommned getting a second one so you can hot-swap between spraying and printing more easily.
 
-### Step 7 - Get creating!
+### Step 8 - Get creating!
 You can create stencils using a laser or vinyl cutter (or masking) and now generate consistently sprayed images.
 You could adapt my spraying code to spray patterns or images directly without requiring a stencil.
 You can spray functional inks like I've done in my demo below to quickly generate functional prototypes on 3D printed objects.
