@@ -1,4 +1,3 @@
-import sys
 import argparse
 
 from dataclasses import dataclass  # Dataclass is used to define the Point class

@@ -1,8 +1,5 @@
 from dataclasses import dataclass  # Dataclass is used to define the Point class
 from GCODE_writer import GCODE_writer
-from math import ceil  # Ceil is used to calculate the number of line per scan
-from pathlib import Path
-
 
 @dataclass
 class Point:
