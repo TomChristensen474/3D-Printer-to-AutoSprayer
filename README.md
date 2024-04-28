@@ -6,7 +6,7 @@ This project is aimed at creating an affordable, accessible autosprayer by modif
 
 This project was done using an Ender 3 V3 SE, the .stl files provided should therefore be adapted or replaced to suit your existing printer. But feel free to take inspiration from the designs. ;)
 
-Speaking of inspiration: The idea for this project and some code developed was based off this original instructables article by user: Remi_Rafael so credit to them. <INSERT ORIGINAL INSTRUCTABLES>
+Speaking of inspiration: The idea for this project and some development was based off this original instructables article by user: Remi_Rafael so credit to them. <INSERT ORIGINAL INSTRUCTABLES>
 
 ## Quick-links
 [System Requirements](##system-requirements)
@@ -17,7 +17,7 @@ Speaking of inspiration: The idea for this project and some code developed was b
 
 [Demo](##demo)
 
-[Code breakdown](##the-code---what-does-it-do)
+[Quick code breakdown](##the-code---what-does-it-do)
 
 
 ## System requirements
@@ -72,8 +72,18 @@ If you are using a CNC 3D gantry or simply don't want to solder a connection to 
 Load the relevant Arduino sketch onto your Arduino depending on if you're automated or button controlled spraying. You can then disconnect it if you wish as your battery/power supply can power the Arduino.
 
 To run the ```spray_an_area.py``` script to generate ```.gcode``` to spray a desired area. You can run ```src/gcode_generation/spray_an_area.py``` with the following flags to specify the area you want to spray
-```--start position```
-```--spray area``` 
+
+```--start-position x y``` - sets the start position to `x` and `y`
+
+```--spray-area w h``` - sets the dimensions of area to be sprayed to `w` (width) and `h` (height) in mm
+
+```--destination filename``` - sets the destination filename of the .gcode file e.g. 'spray_an_area' -> `spray_an_area.gcode`
+
+```--layers n``` - repeat for `n` layers
+
+```--no-temp``` - do not set a target temperature or wait for temperature stabilisation
+
+(```static_GCODE_script.py``` is also included, it takes no arguments and may be useful for debugging.)
 
 
 ### Step 5 - Testing
@@ -112,7 +122,7 @@ I wanted to build an end-to-end functional prototype with as much automation as 
 ## The Code - what does it do?
 It can be a little overwhelming for some to dive into a repo and try and decipher what all the code does without a little extra explanation so I thought I'd provide that here:
 
-There are two main components to the code provided. In the ```gcode_generation``` folder you will find code for a simple script to spray an even coat across a specific area as this was my goal for the project. (I used masking to create the pattern for the circuits I wanted to make using sprayed functional inks). However the ```GCODE_writer``` class is provided and can be adapted or modified to spray more complex patterns or images.
+There are two main components to the code provided. In the ```gcode_generation``` folder you will find code for a simple script to spray an even coat across a specific area as this was my goal for the project. (I used my 3D modeling software to create a mask on top of my print in the pattern for the circuit I wanted to make using sprayed functional inks). However the ```GCODE_writer``` class is provided and can be adapted or modified to spray more complex patterns or images. The ```spray_an_area.py``` python script contains arguments that are listed in the [relevant section](#run-the-code).
 
 In the ```arduino_sketches``` folder you will find two very similar scripts with the purpose of controlling the activation of a servo. ```automatic_spray.py``` is an example script that controls the spraying automatically from aforementioned G-code instructions for turning the fan on-and-off. ```button_spray.py``` is an alternative example where spraying can be manually controlled by button-press in the event that alternative printers do not provide as easy access to fan control as with the Ender 3 VS SE (I assume most will as print-heads must be cooled somehow).
 
