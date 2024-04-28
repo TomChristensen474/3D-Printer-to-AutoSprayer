@@ -1,3 +1,6 @@
+import sys
+import argparse
+
 from dataclasses import dataclass    # Dataclass is used to define the Point class
 from GCODE_writer import GCODE_writer
 
@@ -41,6 +44,14 @@ SPRAY_DELAY_REFILL = 2  # Delay to refill cup
 SPRAY_DELAY = 2  # Delay between two spray lines
 
 SPRAY_AREA = Area(width=125, height=120)
+# print(sys.argv)
+# TODO parameterise
+parser = argparse.ArgumentParser(description='Spray an area')
+parser.add_argument('--area', type=int, nargs='+', help='size of area to spray')
+parser.add_argument('--layers', type=int, help='number of layers to spray')
+parser.add_argument('--start', type=int, nargs='+', help='start point of spraying')
+args = parser.parse_args()
+print(args)
 LAYERS = 1
 
 gcode = GCODE_writer('area_spray.gcode')
