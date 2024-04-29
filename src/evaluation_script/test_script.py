@@ -244,6 +244,7 @@ with open("results.csv", "w", newline="") as csvfile:
         "stdev",
     ]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
     for dataset in os.listdir(path):
         if not dataset.endswith("cropped"):
             continue
@@ -253,7 +254,7 @@ with open("results.csv", "w", newline="") as csvfile:
                 # stdev = isolate_square(str(path / dataset / image_path))
                 image = cv.imread(str(path / dataset / image_path))
                 image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-                _, stdev = cv.meanStdDev(image)
+                stdev = cv.meanStdDev(image)[1][0][0]
                 print(stdev)
                 image = cv.resize(image, (400, 600))
                 cv.imshow("Image", image)
