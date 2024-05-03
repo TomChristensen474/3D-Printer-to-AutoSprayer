@@ -1,32 +1,51 @@
 #include <CapacitiveSensor.h>
 #include <Keyboard.h>
 
-CapacitiveSensor sensor = CapacitiveSensor(4,2); // sensor between pins 4 and 2
+CapacitiveSensor sensor1 = CapacitiveSensor(9,8); // sensor between pins 4 and 2
+CapacitiveSensor sensor2 = CapacitiveSensor(7,6); // sensor between pins 4 and 2
+CapacitiveSensor sensor3 = CapacitiveSensor(4,5); // sensor between pins 4 and 2
+CapacitiveSensor sensor4 = CapacitiveSensor(15,14); // sensor between pins 4 and 2
 
 void setup(){
 
-sensor.set_CS_AutocaL_Millis(0xFFFFFFFF); // turn off autocalibrate on channel 1 - just as an example Serial.begin(9600);
-Serial.begin(9600);
+sensor1.set_CS_AutocaL_Millis(0xFFFFFFFF); // turn off autocalibrate on channel 1
+sensor2.set_CS_AutocaL_Millis(0xFFFFFFFF);
+sensor3.set_CS_AutocaL_Millis(0xFFFFFFFF);
+sensor4.set_CS_AutocaL_Millis(0xFFFFFFFF);
 
-// Keyboard.begin();
+// Serial.begin(921600);
+
+Keyboard.begin();
 }
 
 void loop() {
-
-long start = millis();
-
-long sensor_data = sensor.capacitiveSensor(30);
-
-if (sensor_data > 50) {
-  // press SPACEBAR
-  // Keyboard.write(32)
-  // press A
-  // Keyboard.write(65);
-  Serial.println('A');
-} else {
-  // Keybaord.releaseAll();
-}
-
-delay(10); // arbitrary delay to limit data to serial port
+  long sensor_data1 = sensor1.capacitiveSensor(120);
+  long sensor_data2 = sensor2.capacitiveSensor(120);
+  long sensor_data3 = sensor3.capacitiveSensor(120);
+  long sensor_data4 = sensor4.capacitiveSensor(120);
+  if (sensor_data1 > 25) {
+    // press RIGHT ARROW
+    Keyboard.write(39);
+  } else {
+    Keyboard.release(39);
+  }
+  if (sensor_data2 > 25) {
+    // press Z (jump - A)
+    Keyboard.write(90);
+  } else {
+    Keyboard.release(90);
+  }
+  if (sensor_data3 > 200) {
+    // press LEFT ARROW
+    Keyboard.write(37);
+  } else {
+    Keyboard.release(37);
+  }
+  if (sensor_data4 > 200) {
+    // press X (use ability - B)
+    Keyboard.write(88);
+  } else {
+    Keyboard.release(88);
+  }
 
 }
