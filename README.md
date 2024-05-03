@@ -2,7 +2,8 @@
 ## Introduction
 This project is aimed at creating an affordable, accessible autosprayer by modifying your 3D printer. The process is non-destructive and you will retain the existing functionality of your 3D printer.
 
-<INSERT GIF OF DEMO>
+Taking it from [a boring 3D Printer](docs/Ender3V3SE.jpg) to [3D Printer + AutoSprayer](docs/finished_system.mp4):
+
 
 This project was done using an Ender 3 V3 SE, the .stl files provided should therefore be adapted or replaced to suit your existing printer. But feel free to take inspiration from the designs. ;)
 
