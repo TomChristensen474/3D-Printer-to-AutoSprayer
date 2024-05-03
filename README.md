@@ -10,15 +10,15 @@ This project was done using an Ender 3 V3 SE, the .stl files provided should the
 Speaking of inspiration: The idea for this project and some development was based off this original instructables article by user: Remi_Rafael so credit to them. <INSERT ORIGINAL INSTRUCTABLES>
 
 ## Quick-links
-[System Requirements](##system-requirements)
+[System Requirements](#system-requirements)
 
-[How does it work?](##how-does-it-work)
+[How does it work?](#how-does-it-work)
 
-[How to set up](##how-to-set-up)
+[How to set up](#how-to-set-up)
 
-[Demo](##demo)
+[Demo](#demo)
 
-[Quick code breakdown](##the-code---what-does-it-do)
+[Quick code breakdown](#the-code---what-does-it-do)
 
 
 ## System requirements
