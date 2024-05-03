@@ -16,8 +16,6 @@ Speaking of inspiration: The idea for this project and some development was base
 
 [How to set up](#how-to-set-up)
 
-[Demo](#demo)
-
 [Quick code breakdown](#the-code---what-does-it-do)
 
 
@@ -116,9 +114,6 @@ You could adapt my spraying code to spray patterns or images directly without re
 You can spray functional inks like I've done in my demo below to quickly generate functional prototypes on 3D printed objects.
 
 If you do end up creating anything using this repo I'd love to see so please get in touch and show off what you've done!
-
-## Demo
-I wanted to build an end-to-end functional prototype with as much automation as possible. I built a simple model of an SNES-like controller, 3D printed it, masked it manually before spraying the masked model with a conductive ink. I then built a capacitive touch sensor using all the sprayed buttons. Using arduino keyboard emulation we can kick back and play some games now that work is done!
 
 ## The Code - what does it do?
 It can be a little overwhelming for some to dive into a repo and try and decipher what all the code does without a little extra explanation so I thought I'd provide that here:
