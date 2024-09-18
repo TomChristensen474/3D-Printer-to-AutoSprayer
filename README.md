@@ -4,9 +4,12 @@ This project is aimed at creating an affordable, accessible autosprayer by modif
 
 Taking it from a boring 3D printer to 3D Printer + AutoSprayer:
 
-<img src="docs/Ender3V3SE.jpg" width="200"> <video src="docs/finished_system.mp4" width=150>
+<img src="docs/Ender3V3SE.jpg" width="200"><img src="docs/finished_system.jpg" width="200">
 
-The video above shows a benchmark of the autosprayer's even spray-coating capabilities.
+https://github.com/user-attachments/assets/ce837ea1-1385-4ece-8191-b1b6b753dc1a
+
+The video above shows a benchmark of the autosprayer's even spray-coating capabilities - apologies for Github's rotation of the portrait video.
+
 
 This project was done using an Ender 3 V3 SE, the .stl files provided should therefore be adapted or replaced to suit your existing printer. But feel free to take inspiration from the designs. ;)
 
